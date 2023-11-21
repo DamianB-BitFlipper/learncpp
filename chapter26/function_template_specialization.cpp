@@ -6,7 +6,9 @@ class Storage {
 public:
   
   Storage(T value) : m_value{ value } {}
-  ~Storage() {};
+  // No Storage destructor defined fails compilation
+  // ~Storage() = default; // Compiles but "Deleting double" never printed
+  ~Storage() {}; // Compiles and "Deleting double" is printed
 
   void print() const { std::cout << m_value << std::endl; }
 
